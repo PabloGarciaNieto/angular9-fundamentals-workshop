@@ -1,32 +1,18 @@
 {
   "courses": [
     {
-      "id": 1,
-      "title": "Angular 9 Fundamentals",
-      "description": "Learn the fundamentals of Angular 9",
-      "percentComplete": 26,
+      "id": 2,
+      "title": "Git Advanced Course",
+      "description": "Almos all about git",
+      "percentComplete": 10,
       "favorite": true
     },
     {
-      "id": 2,
-      "title": "Functional JavaScript",
-      "description": "Brian is a demi-god",
-      "percentComplete": 0,
-      "favorite": false
-    },
-    {
       "id": 3,
-      "title": "GraphQL for the Masses",
-      "description": "Scott Moss is the Boss",
-      "percentComplete": 0,
-      "favorite": false
-    },
-    {
-      "id": 4,
-      "title": "Creating a Learning Empire",
-      "description": "Marc G Gets It Done",
-      "percentComplete": 0,
-      "favorite": false
+      "title": "Angular Material Course",
+      "description": "Grab the Magic behind this amazing Library",
+      "percentComplete": 50,
+      "favorite": true
     }
   ]
 }
