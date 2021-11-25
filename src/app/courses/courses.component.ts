@@ -6,11 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./courses.component.scss']
 })
 export class CoursesComponent implements OnInit {
-  // CHALLENGE
-  // STEP 01: Update the form to show percentComplete
-  // STEP 02: Updaet the form to show favorite
-
-  selectedCourse = null;
+ 
+  selectedCourse = undefined;
 
   courses = [
     {
@@ -37,29 +34,31 @@ export class CoursesComponent implements OnInit {
 
   resetSelectedCourse() {
     const emptyCourse = {
-      id: null,
+      id: undefined,
       title: '',
       description: '',
       percentComplete: 0,
       favorite: false
-    };
-
+    }
     this.selectedCourse = emptyCourse;
   }
 
-  selectCourse(course) {
+  selectCourse(course: any) {
     this.selectedCourse = course;
   }
-
-  saveCourse() {
-    console.log('SAVE SOURCE!');
+  removeCourse(course: any) {
+    this.courses.forEach((e, index) => {
+      if (e.id === course.id) {
+        this.courses.splice(index, 1);
+        if (this.selectedCourse.id === e.id)
+        this.cancel();
+      }
+    })
   }
-
-  deleteCourse(courseId) {
-    console.log('COURSE DELETED!', courseId);
-  }
-
   cancel() {
     this.resetSelectedCourse();
+  }
+  saveCourse() {
+    console.log('submited course', this.selectedCourse)
   }
 }
