@@ -6,8 +6,8 @@
     </mat-card-header>
     <mat-card-content> 
       <mat-list dense>
-          <mat-list-item *ngFor="let lesson of courseLessons" (click)="selectLesson(lesson)">
-              <h3>{{lesson.title}}</h3>
+          <mat-list-item *ngFor="let lesson of courseLessons; index as i" (click)="selectLesson(lesson)">
+              <h3>{{i + 1}} {{lesson.title}}</h3>
           </mat-list-item>
       </mat-list>
     </mat-card-content>
