@@ -6,10 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./courses.component.scss']
 })
 export class CoursesComponent implements OnInit {
-  // CHALLENGE
-  // STEP 01: Display courses using ngFor
-  // STEP 02: Add event handler to select course
-  // STEP 03: Display raw json of selected course
+ 
+  selectedCourse = undefined;
 
   courses = [
     {
@@ -31,6 +29,36 @@ export class CoursesComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.resetSelectedCourse();
   }
 
+  resetSelectedCourse() {
+    const emptyCourse = {
+      id: undefined,
+      title: '',
+      description: '',
+      percentComplete: 0,
+      favorite: false
+    }
+    this.selectedCourse = emptyCourse;
+  }
+
+  selectCourse(course: any) {
+    this.selectedCourse = course;
+  }
+  removeCourse(course: any) {
+    this.courses.forEach((e, index) => {
+      if (e.id === course.id) {
+        this.courses.splice(index, 1);
+        if (this.selectedCourse.id === e.id)
+        this.cancel();
+      }
+    })
+  }
+  cancel() {
+    this.resetSelectedCourse();
+  }
+  saveCourse() {
+    console.log('submited course', this.selectedCourse)
+  }
 }
